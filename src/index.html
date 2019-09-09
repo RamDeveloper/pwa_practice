@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Hello PWA</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css" media="all">
+
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1 class="vertical-container">Hello Progressive Web Apps (PWA)</h1>
+
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!--Firebase integration-->
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script> -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+  <!--for messaging -->
+  <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-messaging.js"></script>
+
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-firestore.js"></script>
+
+  <script>
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDpsVxkty9pdV1-t2tz0jqPhISrOY0g-Sk",
+      authDomain: "rely-basic-pwa.firebaseapp.com",
+      databaseURL: "https://rely-basic-pwa.firebaseio.com",
+      projectId: "rely-basic-pwa",
+      storageBucket: "",
+      messagingSenderId: "297804826512",
+      appId: "1:297804826512:web:0d7a7a85574079ddb21515"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script>
+      // const messaging = firebase.messaging();
+      // messaging.requestPermission()
+      // .then(function() {
+      //   console.log('Notification permission granted.');
+      //   return messaging.getToken();
+      // })
+      // .then(function(token) {
+      //   console.log(token);
+      // })
+      // .catch(function(err) {
+      //   console.log('Unable to get permission to notify.', err);
+      // })
+      //
+      // messaging.setBackgroundMessageHandler(function(payload) {
+      //  const title = 'PWA Ram';
+      //  const options = {
+      //   body: payload.data.body
+      //  };
+      //  return self.registration.showNotification(title, options);
+      // });
+    </script>
+
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function() {
+              console.log('Service Worker Registered');
+        });
+    }
+  </script>
+
+</body>
+
+</html>
